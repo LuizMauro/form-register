@@ -3,7 +3,7 @@ import { MuiThemeProvider, TextField, Button, createMuiTheme, withStyles } from 
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft }  from 'react-icons/md'
 import RICIBs from 'react-individual-character-input-boxes';
 import Lottie from 'react-lottie';
-import * as animationData from './animations/CheckCodeEmail.json'
+import * as animationData from '../animations/CheckCodeEmail.json'
 
 
 const theme = createMuiTheme({

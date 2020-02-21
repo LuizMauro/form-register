@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MuiThemeProvider, TextField, Button, createMuiTheme, withStyles } from '@material-ui/core'
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft }  from 'react-icons/md'
 import Lottie from 'react-lottie';
-import * as animationData from './animations/FinishRegister.json'
+import * as animationData from '../animations/FinishRegister.json'
 
 
 const theme = createMuiTheme({
