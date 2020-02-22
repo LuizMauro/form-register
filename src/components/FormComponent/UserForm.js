@@ -17,7 +17,7 @@ export class UserForm extends Component {
         cnpj:'',
         senha:'',
         confirmSenha:'',
-        confirmCodeEmail:'',
+        confirmCodeEmail:''
     }
     //next step
     nextStep = () =>{
