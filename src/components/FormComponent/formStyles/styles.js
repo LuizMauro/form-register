@@ -17,15 +17,14 @@ export const RightDiv = styled.div `
     border-top-left-radius: 20px;
     border-bottom-left-radius:20px;
     box-shadow: -15px 0px 50px  0.1px rgba(0,0,0,0.2) ;
-
     display: flex;
     flex-direction: row;
-
     align-items: center;
 
     @media (max-width: 1200px) {
         border-radius:0px;
-        flex:1;
+
+        width:100vh;
   }
 `;
 
@@ -38,6 +37,18 @@ export const FormDiv = styled.div`
   .MuiFormControl-root, button{
       margin:10px;
   }
+  .ebDhOV{
+        width:100%;
+        margin-top:15px;
+        padding:5px;
+    }
+
+  @media (max-width: 1200px) {
+        border-radius:0px;
+        margin-left:10%;
+        width:80%;
+
+  }
 
 `
 
@@ -45,6 +56,9 @@ export const LeftDiv = styled.div `
 
     flex:1;
     height:100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     @media (max-width: 1200px) {
         display:none;

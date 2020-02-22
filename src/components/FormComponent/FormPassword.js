@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider, Button, createMuiTheme, withStyles } from '@material-ui/core'
+import { MuiThemeProvider, TextField, Button, createMuiTheme, withStyles } from '@material-ui/core'
 import { MdKeyboardArrowRight }  from 'react-icons/md'
-import Lottie from 'react-lottie';
-import * as animationData from '../animations/FinishRegister.json'
+
+
 
 
 const theme = createMuiTheme({
@@ -29,43 +29,46 @@ const theme = createMuiTheme({
   })(Button);
 
 
-
 export class FormUserDetails extends Component {
+
+    continue = e =>{
+        e.preventDefault();
+        this.props.nextStep();
+
+    }
+
     render() {
-
-
-        const defaultOptions = {
-            loop: false,
-            autoplay: true,
-            animationData: animationData.default,
-            rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice'
-            }
-          };
-
-
-
+        const { values, handleChange } = this.props;
 
         return (
-
             <MuiThemeProvider theme={theme}>
                 <React.Fragment>
-                    <h1 style={styles.title}>Parabéns você chegou ao final do cadastro!</h1>
+                    <h1 style={styles.title}>Vamos criar sua senha!</h1>
+                    <h3 style={styles.subTitle}>Digite uma senha e a confirme logo após</h3>
 
-                    <Lottie options={defaultOptions}
-                        height={400}
-                        width={400}
-                     />
+                    <TextField
+                        label="Senha"
+                        fullWidth
+                        type="password"
+                        onChange={handleChange('email')}
+                        defaultValue={values.senha}
+                    />
 
 
-                    <h4 style={styles.subTitle}>Agora você já pode entrar no sistema - clique no botão para logar</h4>
+                    <TextField
+                        label="Cofirme sua senha"
+                        fullWidth
+                        type="password"
+                        onChange={handleChange('email')}
+                        defaultValue={values.confirmSenha}
+                    />
 
-
-                    <StyledButton style={styles.button}>
-                         Entrar
+                    <StyledButton style={styles.button} onClick={this.continue} >
+                        Continuar
                         <MdKeyboardArrowRight fontSize={25}>
                         </MdKeyboardArrowRight>
                     </StyledButton>
+
 
                 </React.Fragment>
             </MuiThemeProvider>

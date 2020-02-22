@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, TextField, Button, createMuiTheme, withStyles } from '@material-ui/core'
 import { MdKeyboardArrowRight }  from 'react-icons/md'
+import InputMask from 'react-input-mask'
+
 
 
 
@@ -47,22 +49,20 @@ export class FormUserDetails extends Component {
                         label="Seu nome completo"
                         fullWidth
                         onChange={handleChange('name')}
-                        defaultValue={values.firstName}
+                        defaultValue={values.name}
                     />
+
 
                     <TextField
                         label="E-mail"
                         fullWidth
                         onChange={handleChange('email')}
-                        defaultValue={values.firstName}
+                        defaultValue={values.email}
                     />
 
-                     <TextField
-                        label="CNPJ"
-                        fullWidth
-                        onChange={handleChange('cnpj')}
-                        defaultValue={values.firstName}
-                    />
+                    <InputMask mask="99.999.999/9999-99" defaultValue={values.cnpj}  maskChar=" " onChange={handleChange('cnpj')}>
+                        {(inputProps) => <TextField {...inputProps}   label="CNPJ" fullWidth  />}
+                    </InputMask>
 
                     <StyledButton style={styles.button} onClick={this.continue} >
                         Continuar

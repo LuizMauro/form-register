@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import FormUserDetails from './FormUserDetails';
 import FormConfirmCodeEmail from './FormConfirmCodeEmail'
-import FromCompleted  from './FormCompleted';
+import FormCompleted  from './FormCompleted';
+import FormPassword from './FormPassword';
 import { ContainerGlobal, LeftDiv, RightDiv, FormDiv }  from './formStyles/styles';
+import Lottie from 'react-lottie';
+import * as animationData from '../animations/Register.json'
 
 
 export class UserForm extends Component {
@@ -12,6 +15,9 @@ export class UserForm extends Component {
         name: '',
         email: '',
         cnpj:'',
+        senha:'',
+        confirmSenha:'',
+        confirmCodeEmail:'',
     }
     //next step
     nextStep = () =>{
@@ -35,14 +41,28 @@ export class UserForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { firstName, lastName, email, confirmEmail, cnpj } = this.state;
-        const values = { firstName, lastName, email, confirmEmail, cnpj }
+        const { name, email, cnpj, senha, confirmSenha } = this.state;
+        const values = { name, email, cnpj, senha, confirmSenha }
+
+        const defaultOptions = {
+            loop: true,
+            autoplay: true,
+            animationData: animationData.default,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+            }
+          };
 
         switch(step){
             case 1:
                 return(
                     <ContainerGlobal>
-                        <LeftDiv></LeftDiv>
+                        <LeftDiv>
+                            <Lottie options={defaultOptions}
+                            height={500}
+                            width={500}
+                            />
+                        </LeftDiv>
                         <RightDiv>
                             <FormDiv>
                                 <FormUserDetails
@@ -57,7 +77,12 @@ export class UserForm extends Component {
             case 2:
                 return (
                     <ContainerGlobal>
-                        <LeftDiv></LeftDiv>
+                        <LeftDiv>
+                        <Lottie options={defaultOptions}
+                            height={500}
+                            width={500}
+                            />
+                        </LeftDiv>
                         <RightDiv>
                             <FormDiv>
                                 <FormConfirmCodeEmail
@@ -74,10 +99,15 @@ export class UserForm extends Component {
             case 3:
                 return (
                     <ContainerGlobal>
-                        <LeftDiv></LeftDiv>
+                        <LeftDiv>
+                        <Lottie options={defaultOptions}
+                            height={500}
+                            width={500}
+                            />
+                        </LeftDiv>
                         <RightDiv>
                             <FormDiv>
-                                <FromCompleted
+                                <FormPassword
                                     nextStep={this.nextStep}
                                     prevStep={this.prevStep}
                                     handleChange={this.handleChange}
@@ -88,6 +118,29 @@ export class UserForm extends Component {
                         </RightDiv>
                     </ContainerGlobal>
                 )
+                case 4:
+                    return (
+                        <ContainerGlobal>
+                            <LeftDiv>
+                            <Lottie options={defaultOptions}
+                                height={500}
+                                width={500}
+                                />
+                            </LeftDiv>
+                            <RightDiv>
+                                <FormDiv>
+                                    <FormCompleted
+                                        nextStep={this.nextStep}
+                                        prevStep={this.prevStep}
+                                        handleChange={this.handleChange}
+                                        values={values}
+
+                                     />
+                                </FormDiv>
+                            </RightDiv>
+                        </ContainerGlobal>
+                    )
+                    default:
 
 
         }

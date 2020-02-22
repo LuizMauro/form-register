@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider, TextField, Button, createMuiTheme, withStyles } from '@material-ui/core'
+import { MuiThemeProvider, Button, createMuiTheme, withStyles } from '@material-ui/core'
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft }  from 'react-icons/md'
 import RICIBs from 'react-individual-character-input-boxes';
 import Lottie from 'react-lottie';
@@ -61,7 +61,6 @@ export class FormUserDetails extends Component {
 
 
     render() {
-        const { values, handleChange } = this.props;
 
 
         const defaultOptions = {
