@@ -53,8 +53,8 @@ export class FormUserDetails extends Component {
                     <h1 style={styles.title}>Parabéns você chegou ao final do cadastro!</h1>
 
                     <Lottie options={defaultOptions}
-                        height={300}
-                        width={300}
+                        height={200}
+                        width={200}
                      />
 
 
