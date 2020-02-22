@@ -33,12 +33,12 @@ const theme = createMuiTheme({
 export class FormUserDetails extends Component {
     constructor(props) {
         super(props);
-        this.state = {isStopped: true};
+        this.state = {isStopped: true, isDisabled:false};
       }
 
     continue = e =>{
         e.preventDefault();
-        this.setState({isStopped:false})
+       this.setState({isStopped:false, isDisabled:true})
         this.delayNextStep();
     }
 
@@ -94,7 +94,7 @@ export class FormUserDetails extends Component {
                         Voltar
                     </Button>
 
-                    <StyledButton style={styles.button} onClick={this.continue} >
+                    <StyledButton disabled={this.state.isDisabled} style={styles.button} onClick={this.continue} >
                         Verificar
                         <MdKeyboardArrowRight fontSize={25}>
                         </MdKeyboardArrowRight>
